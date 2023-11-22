@@ -1,7 +1,7 @@
-import Reacts from "react";
+import React from "react";
 
 import { useContext } from "react";
-import { QuizContext } from "../context/quiz";
+import { QuizContext } from '../context/quiz'
 
 import './Welcome.css'
 import Quiz from '../img/quiz.svg'

@@ -5,14 +5,21 @@ const STAGES = ['Start', 'Playing', 'End']
 
 const initialState = {
     gameStage: STAGES [0],
-    questions
+    questions,
 }
 
-const quizReducer = (state,action) =>{
+const quizReducer = (state, action) => {
+
     console.log(state,action)
+
+    
     switch(action.type){
         case "CHANGE_STATE":
-            return state
+            console.log('caiu')
+            return {
+                ...state,
+                gameStage: STAGES[1],
+            }
 
         default:
             return state
@@ -21,7 +28,8 @@ const quizReducer = (state,action) =>{
 
 export const QuizContext = createContext();
 
+
 export const QuizProvider = ({children}) => {
-    const value = useReducer(quizReducer,initialState);
+    const value = useReducer(quizReducer, initialState);
     return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
 };
